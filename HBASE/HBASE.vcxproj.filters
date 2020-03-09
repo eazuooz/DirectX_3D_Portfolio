@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="BASEDEFINE.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="NAME.h">
+      <Filter>BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="DATATYPE.h">
+      <Filter>BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="DEBUG.h">
+      <Filter>HDEBUG</Filter>
+    </ClInclude>
+    <ClInclude Include="INPUT.h">
+      <Filter>INPUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DIRECTORY.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="FILE.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="FILESTREAM.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="IOPATH.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="PATH.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="MATHS.h">
+      <Filter>MATH</Filter>
+    </ClInclude>
+    <ClInclude Include="RANDOM.h">
+      <Filter>MATH</Filter>
+    </ClInclude>
+    <ClInclude Include="REF.h">
+      <Filter>MEMORY</Filter>
+    </ClInclude>
+    <ClInclude Include="JTEMPLATE.h">
+      <Filter>TEMPLATE</Filter>
+    </ClInclude>
+    <ClInclude Include="GAMETHREAD.h">
+      <Filter>THREAD</Filter>
+    </ClInclude>
+    <ClInclude Include="JWINDOW.h">
+      <Filter>WINAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="JTIME.h">
+      <Filter>TIME</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NAME.cpp">
+      <Filter>BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="DATATYPE.cpp">
+      <Filter>BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="DEBUG.cpp">
+      <Filter>HDEBUG</Filter>
+    </ClCompile>
+    <ClCompile Include="INPUT.cpp">
+      <Filter>INPUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DIRECTORY.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FILE.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="IO.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FILESTREAM.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="IOPATH.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="PATH.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="MATHS.cpp">
+      <Filter>MATH</Filter>
+    </ClCompile>
+    <ClCompile Include="REF.cpp">
+      <Filter>MEMORY</Filter>
+    </ClCompile>
+    <ClCompile Include="JTEMPLATE.cpp">
+      <Filter>TEMPLATE</Filter>
+    </ClCompile>
+    <ClCompile Include="GAMETHREAD.cpp">
+      <Filter>THREAD</Filter>
+    </ClCompile>
+    <ClCompile Include="JWINDOW.cpp">
+      <Filter>WINAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="JTIME.cpp">
+      <Filter>TIME</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="IO">
+      <UniqueIdentifier>{6fca8bcd-f854-4ed5-9dd5-833c7b692fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WINAPI">
+      <UniqueIdentifier>{d5019f88-a90d-45cc-8c97-291fe0cd3ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HDEBUG">
+      <UniqueIdentifier>{ebb5e291-d63f-49f3-8ae2-b3d32deb4daf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TIME">
+      <UniqueIdentifier>{1c3480fc-0f51-45fd-a404-1f88b5f24c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH">
+      <UniqueIdentifier>{195492b3-eebc-4155-9946-87558c1fa4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="INPUT">
+      <UniqueIdentifier>{173d6b8f-b7a7-4992-ac44-b63e413e291c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TEMPLATE">
+      <UniqueIdentifier>{8037fd17-f346-465c-8e5c-dcbace1be6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BASE">
+      <UniqueIdentifier>{63e3e561-faeb-4f54-a39b-5f3291e7ee68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MEMORY">
+      <UniqueIdentifier>{939a62f6-f044-4a3c-92e6-7995dbee5028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="THREAD">
+      <UniqueIdentifier>{c29312a7-35db-4aa1-8fa7-1d40445eeabf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MATMATH.txt" />
+  </ItemGroup>
+</Project>

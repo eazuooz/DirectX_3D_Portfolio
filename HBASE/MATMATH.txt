@@ -1,0 +1,612 @@
+
+
+void HFBX::ConvertDataLoad(const wchar_t* _FileName) 
+{
+	HFILERBSTREAM RStream = HFILERBSTREAM(_FileName);
+
+	m_MeshData;
+	m_BoneData;
+	m_MaterialData; // 서브셋 개수만큼 있을 것이다.
+	m_AniData;
+
+
+	//std::vector<HVEC4>	vecPos;
+	//std::vector<HVEC4>	vecNormal;
+	//std::vector<HVEC4>	vecUV;
+	//std::vector<HVEC4>	vecTangent;
+	//std::vector<HVEC4>	vecBinormal;
+	//std::vector<HVEC4>	vecBlendWeight; // 가중치 // 0이 곱해져서 안나온다.
+	//std::vector<HVEC4>	vecBlendIndex;
+	//std::vector<std::vector<UINT>>	vecIndices;
+	//std::unordered_map<int, std::vector<FbxWeight>>	mapWeights; // 애는 어차피 정렬되서vecBlendWeight에 들어가므로 상관이 없다.
+	//bool				bBump;
+	//bool				bAnimation;
+
+	int Size;
+	RStream >> Size;
+	m_MeshData.resize(Size);
+
+	for (size_t i = 0; i < Size; i++)
+	{
+		m_MeshData[i] = new FbxMeshData();
+
+		int VtxSize;
+		RStream >> VtxSize;
+		m_MeshData[i]->vecPos.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecPos[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecNormal.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecNormal[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecUV.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecUV[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecTangent.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecTangent[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecBinormal.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecBinormal[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecBlendWeight.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecBlendWeight[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecBlendIndex.resize(VtxSize);
+		if (0 != VtxSize)
+		{
+			RStream.Read(&(m_MeshData[i]->vecBlendIndex[0]), sizeof(HVEC4) * VtxSize);
+		}
+
+		RStream >> VtxSize;
+		m_MeshData[i]->vecIndices.resize(VtxSize);
+		for (std::vector<UINT>& IdxArr : m_MeshData[i]->vecIndices)
+		{
+			int IdxCount;
+			RStream >> IdxCount;
+			if (0 != IdxCount)
+			{
+				RStream.Read(&(IdxArr[0]), sizeof(UINT) * IdxCount);
+			}
+		}
+
+		RStream >> m_MeshData[i]->bBump;
+		RStream >> m_MeshData[i]->bAnimation;
+	}
+
+	return;
+
+	//FbxBoneData*		m_pParent;
+	//std::wstring	Name;
+	//int				iDepth;
+	//int				iIndex;
+	//int				iParentIndex;
+	//FbxAMatrix		matOffset;
+	//FbxAMatrix		matBone;
+
+	RStream >> Size;
+	m_BoneData.resize(Size);
+	for (FbxBoneData& RBoneData : m_BoneData)
+	{
+		RStream >> RBoneData.Name;
+		RStream.Read(&RBoneData.iDepth, sizeof(FbxBoneData) - sizeof(std::wstring));
+	}
+
+	//HVEC4				Dif;
+	//HVEC4				Amb;
+	//HVEC4				Spc;
+	//HVEC4				Emv;
+	//float				SpecularPower;
+	//float				TransparencyFactor;
+	//float				Shininess;
+	//std::wstring		DifTex;
+	//std::wstring		BumpTex;
+	//std::wstring		SpcTex;
+
+	RStream >> Size;
+	m_MaterialData.resize(Size);
+	for (std::vector<HPTR<FbxMaterialData>>& RMtrlData : m_MaterialData)
+	{
+		int MtrlCount;
+		RStream >> MtrlCount;
+		RMtrlData.resize(MtrlCount);
+		for (HPTR<FbxMaterialData>& Mtrl : RMtrlData)
+		{
+			Mtrl = new FbxMaterialData();
+
+			RStream.Read(&Mtrl->Dif, sizeof(FbxMaterialData) - sizeof(std::wstring) * 3);
+			RStream >> Mtrl->DifTex;
+			RStream >> Mtrl->BumpTex;
+			RStream >> Mtrl->SpcTex;
+		}
+	}
+
+
+	//std::wstring Name;
+	//FbxTime StartTime; // 애니메이션 시작시간
+	//FbxTime EndTime; // 애니메이션 
+	//FbxLongLong TimeStartCount; // 그중에서 시작프레임
+	//FbxLongLong TimeEndCount; // 그중에서 끝나는 프레임
+	//FbxLongLong TimeLength; // 그 사이의 길이
+	//FbxTime::EMode TimeMode;
+	//std::vector<FbxBoneKeyFrame>	BoneKeyFrame;
+
+	//class FbxBoneKeyFrame
+	//{
+	//public:
+	//	int		iBoneIndex;
+	//	std::vector<FbxKeyFrame>	KeyFrame;
+	//};
+
+	RStream >> Size;
+	m_AniData.resize(Size);
+	for (HPTR<FbxAniData>& RAniData : m_AniData)
+	{
+		RAniData = new FbxAniData();
+		RStream >> RAniData->Name;
+		RStream.Read(&RAniData->StartTime, sizeof(FbxAniData) - sizeof(std::wstring) - sizeof(std::vector<FbxBoneKeyFrame>));
+
+		int BKFCount;
+		RStream >> BKFCount;
+		RAniData->BoneKeyFrame.resize(BKFCount);
+		for (FbxBoneKeyFrame& RBKF : RAniData->BoneKeyFrame)
+		{
+			int KFCount;
+			RStream >> RBKF.iBoneIndex;
+			RStream >> KFCount;
+			RBKF.KeyFrame.resize(KFCount);
+			if (0 != RBKF.KeyFrame.size())
+			{
+				RStream.Read(&RBKF.KeyFrame[0], sizeof(FbxKeyFrame) * RBKF.KeyFrame.size());
+			}
+		}
+	}
+
+}
+
+void HFBX::ConvertToSave(const wchar_t* _FileName)
+{
+	HFILEWBSTREAM WStream = HFILEWBSTREAM(_FileName);
+
+	m_MeshData;
+	m_BoneData;
+	m_MaterialData; // 서브셋 개수만큼 있을 것이다.
+	m_AniData;
+
+
+	//std::vector<HVEC4>	vecPos;
+	//std::vector<HVEC4>	vecNormal;
+	//std::vector<HVEC4>	vecUV;
+	//std::vector<HVEC4>	vecTangent;
+	//std::vector<HVEC4>	vecBinormal;
+	//std::vector<HVEC4>	vecBlendWeight; // 가중치 // 0이 곱해져서 안나온다.
+	//std::vector<HVEC4>	vecBlendIndex;
+	//std::vector<std::vector<UINT>>	vecIndices;
+	//std::unordered_map<int, std::vector<FbxWeight>>	mapWeights; // 애는 어차피 정렬되서vecBlendWeight에 들어가므로 상관이 없다.
+	//bool				bBump;
+	//bool				bAnimation;
+
+	WStream << (int)m_MeshData.size();
+	for (size_t i = 0; i < m_MeshData.size(); i++)
+	{
+		WStream << (int)m_MeshData[i]->vecPos.size();
+		if (0 != m_MeshData[i]->vecPos.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecPos[0], sizeof(HVEC4) * m_MeshData[i]->vecPos.size());
+		}
+		WStream << (int)m_MeshData[i]->vecNormal.size();
+		if (0 != m_MeshData[i]->vecNormal.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecNormal[0], sizeof(HVEC4) * m_MeshData[i]->vecNormal.size());
+		}
+		WStream << (int)m_MeshData[i]->vecUV.size();
+		if (0 != m_MeshData[i]->vecUV.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecUV[0], sizeof(HVEC4) * m_MeshData[i]->vecUV.size());
+		}
+		WStream << (int)m_MeshData[i]->vecTangent.size();
+		if (0 != m_MeshData[i]->vecTangent.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecTangent[0], sizeof(HVEC4) * m_MeshData[i]->vecTangent.size());
+		}
+		WStream << (int)m_MeshData[i]->vecBinormal.size();
+		if (0 != m_MeshData[i]->vecBinormal.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecBinormal[0], sizeof(HVEC4) * m_MeshData[i]->vecBinormal.size());
+		}
+		WStream << (int)m_MeshData[i]->vecBlendWeight.size();
+		if (0 != m_MeshData[i]->vecBlendWeight.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecBlendWeight[0], sizeof(HVEC4) * m_MeshData[i]->vecBlendWeight.size());
+		}
+		WStream << (int)m_MeshData[i]->vecBlendIndex.size();
+		if (0 != m_MeshData[i]->vecBlendIndex.size())
+		{
+			WStream.Write(&m_MeshData[i]->vecBlendIndex[0], sizeof(HVEC4) * m_MeshData[i]->vecBlendIndex.size());
+		}
+
+		WStream << (int)m_MeshData[i]->vecIndices.size();
+		for (std::vector<UINT>& IdxArr : m_MeshData[i]->vecIndices)
+		{
+			WStream << (int)IdxArr.size();
+			if (0 != IdxArr.size())
+			{
+				WStream.Write(&IdxArr[0], sizeof(UINT) * IdxArr.size());
+			}
+		}
+
+		WStream << m_MeshData[i]->bBump;
+		WStream << m_MeshData[i]->bAnimation;
+	}
+
+	return;
+
+	//FbxBoneData*		m_pParent;
+	//std::wstring	Name;
+	//int				iDepth;
+	//int				iIndex;
+	//int				iParentIndex;
+	//FbxAMatrix		matOffset;
+	//FbxAMatrix		matBone;
+
+	WStream << (int)m_BoneData.size();
+	for (FbxBoneData& RBoneData : m_BoneData)
+	{
+		WStream << RBoneData.Name;
+		WStream.Write(&RBoneData.iDepth, sizeof(FbxBoneData) - sizeof(std::wstring));
+	}
+
+	//HVEC4				Dif;
+	//HVEC4				Amb;
+	//HVEC4				Spc;
+	//HVEC4				Emv;
+	//float				SpecularPower;
+	//float				TransparencyFactor;
+	//float				Shininess;
+	//std::wstring		DifTex;
+	//std::wstring		BumpTex;
+	//std::wstring		SpcTex;
+
+	WStream << (int)m_MaterialData.size();
+	for (std::vector<HPTR<FbxMaterialData>>& RMtrlData : m_MaterialData)
+	{
+		WStream << (int)RMtrlData.size();
+		for (HPTR<FbxMaterialData>& Mtrl : RMtrlData)
+		{
+			WStream.Write(&Mtrl->Dif, sizeof(FbxMaterialData) - sizeof(std::wstring) * 3);
+			WStream << Mtrl->DifTex;
+			WStream << Mtrl->BumpTex;
+			WStream << Mtrl->SpcTex;
+		}
+	}
+
+
+	//std::wstring Name;
+	//FbxTime StartTime; // 애니메이션 시작시간
+	//FbxTime EndTime; // 애니메이션 
+	//FbxLongLong TimeStartCount; // 그중에서 시작프레임
+	//FbxLongLong TimeEndCount; // 그중에서 끝나는 프레임
+	//FbxLongLong TimeLength; // 그 사이의 길이
+	//FbxTime::EMode TimeMode;
+	//std::vector<FbxBoneKeyFrame>	BoneKeyFrame;
+
+	//class FbxBoneKeyFrame
+	//{
+	//public:
+	//	int		iBoneIndex;
+	//	std::vector<FbxKeyFrame>	KeyFrame;
+	//};
+
+	WStream << (int)m_AniData.size();
+	for (HPTR<FbxAniData>& RAniData : m_AniData)
+	{
+		WStream << RAniData->Name;
+		WStream.Write(&RAniData->StartTime, sizeof(FbxAniData) - sizeof(std::wstring) - sizeof(std::vector<FbxBoneKeyFrame>));
+
+		WStream << (int)RAniData->BoneKeyFrame.size();
+		for (FbxBoneKeyFrame& RBKF : RAniData->BoneKeyFrame)
+		{
+			WStream << RBKF.iBoneIndex;
+			WStream << RBKF.KeyFrame.size();
+			if (0 != RBKF.KeyFrame.size())
+			{
+				WStream.Write(&RBKF.KeyFrame[0], sizeof(FbxKeyFrame) * RBKF.KeyFrame.size());
+			}
+		}
+	}
+
+}
+
+// 행렬의 기본적인 연산에 대해서 이곳에서 배우고
+class MATMATH
+{
+public:
+	std::vector<std::vector<float>> m_Vec;
+
+	std::vector<float>& operator[](int _Index) 
+	{
+		return m_Vec[_Index];
+	}
+
+
+	int Y() const
+	{
+		return (int)m_Vec.size();
+	}
+
+	int X() const
+	{ 
+		return (int)m_Vec[0].size();
+	}
+
+	bool IsMul(const MATMATH& _Other) 
+	{
+		// Y, X| Y, X
+		// 4, 4| 1, 3
+		// Y, X  Y, X
+
+		// 맴버로서의 나의          상대객체의
+		// 앞의행렬의 X의 수와 뒤의 행렬의 Y의 수가 동일하지 않으면
+		// 두 행렬의 곱은 불가능하다.
+		if (X() == _Other.Y())
+		{
+			return true;
+		}
+
+		BOOM;
+		return false;
+	}
+
+	MATMATH operator*(const MATMATH& _Other) 
+	{
+		if (false == IsMul(_Other))
+		{
+			BOOM;
+		}
+
+		// 나의 행과 열의
+		// 상대의 행과 열에 의해서
+		MATMATH NewMat;
+		// 내Y * 내X, 상대Y * 상대X 행렬이 있다면 곰셈의 
+		// 결과로 나오는 행렬은 내Y * 상대X 행렬이 된다.
+		NewMat.SizeSetting(Y(), _Other.X());
+
+		HDEBUG::ConsolePrintLine(L"행렬곱 시작");
+
+		for (int y = 0; y < m_Vec.size(); y++)
+		{
+			for (int x = 0; x < _Other.m_Vec[0].size(); x++)
+			{
+				wchar_t Arr[1024] = { 0, };
+				swprintf_s(Arr, L"[%d][%d] = ", y, x);
+				HDEBUG::ConsolePrint(Arr);
+
+				float Sum = 0.0f;
+				for (int i = 0; i < m_Vec[0].size(); i++)
+				{
+					if (0 != i)
+					{
+						HDEBUG::ConsolePrint(L" + ");
+					}
+					swprintf_s(Arr, L"(a%d%d %0.3f * b%d%d %0.3f)", y, i, m_Vec[y][i], i ,x, _Other.m_Vec[i][x]);
+					HDEBUG::ConsolePrint(Arr);
+					Sum += m_Vec[y][i] * _Other.m_Vec[i][x];
+				}
+
+				NewMat.m_Vec[y][x] = Sum;
+				HDEBUG::ConsolePrint(L"\n");
+			}
+		}
+		return NewMat;
+	}
+
+	void Pos(const HVEC4& _Other) 
+	{
+		if (4 != X() || 4 != Y())
+		{
+			BOOM;
+		}
+		IDEN();
+		m_Vec[3][0] = _Other.x;
+		m_Vec[3][1] = _Other.y;
+		m_Vec[3][2] = _Other.z;
+	}
+
+	void Scale(const HVEC4& _Other)
+	{
+		if (4 != X() || 4 != Y())
+		{
+			BOOM;
+		}
+		IDEN();
+		m_Vec[0][0] = _Other.x;
+		m_Vec[1][1] = _Other.y;
+		m_Vec[2][2] = _Other.z;
+	}
+
+	void DebugPrint() 
+	{
+		HDEBUG::ConsolePrintLine(L"행렬 출력");
+		for (int y = 0; y < (m_Vec.size(); y++)
+		{
+			for (int x = 0; x < m_Vec[y].size(); x++)
+			{
+				wchar_t Arr[1024] = { 0, };
+				swprintf_s(Arr, L"[%d][%d] = %f \t", y, x, m_Vec[y][x]);
+				HDEBUG::ConsolePrint(Arr);
+			}
+			HDEBUG::ConsolePrintLine();
+		}
+	}
+
+	void Zero() 
+	{
+		AllValueSetting(0.0f);
+	}
+
+	void AllValueSetting(float _Value) 
+	{
+		for (size_t y = 0; y < m_Vec.size(); y++)
+		{
+			for (size_t x = 0; x < m_Vec[y].size(); x++)
+			{
+				m_Vec[y][x] = _Value;
+			}
+		}
+	}
+
+	// 좌변이??? 
+	// 좌변이 마치 HVEC4인것처럼 곱해줄것이다.
+	// 3차원 벡터처럼 곱할것이다.
+	HVEC4 operator*(const HVEC4& _Other)
+	{
+		// MATMATH NewMat;
+		// 내Y * 내X, 상대Y * 상대X 행렬이 있다면 곰셈의 
+		// 결과로 나오는 행렬은 내Y * 상대X 행렬이 된다.
+		//                    _Other
+		// NewMat.SizeSetting(1      , X());
+
+		HVEC4 NewVec;
+
+		HDEBUG::ConsolePrintLine(L"벡터곱 시작");
+		wchar_t Arr[1024] = { 0, };
+
+		for (int y = 0; y < 1; y++)
+		{
+			// W까지는 하지 않겠다.
+			for (int x = 0; x < 4; x++)
+			{
+				switch (x)
+				{
+				case 0:
+					swprintf_s(Arr, L"X = ");
+					break;
+				case 1:
+					swprintf_s(Arr, L"Y = ");
+					break;
+				case 2:
+					swprintf_s(Arr, L"Z = ");
+					break;
+				case 3:
+					swprintf_s(Arr, L"W = ");
+					break;
+				default:
+					break;
+				}
+				HDEBUG::ConsolePrint(Arr);
+
+				float Sum = 0.0f;
+				for (int i = 0; i < 4; i++)
+				{
+					if (0 != i)
+					{
+						HDEBUG::ConsolePrint(L" + ");
+					}
+
+					switch (i)
+					{
+					case 0:
+						swprintf_s(Arr, L"(X %0.3f * b%d%d %0.3f)", _Other.Arr[i], i, x, m_Vec[i][x]);
+						HDEBUG::ConsolePrint(Arr);
+						break;
+					case 1:
+						swprintf_s(Arr, L"(Y %0.3f * b%d%d %0.3f)", _Other.Arr[i], i, x, m_Vec[i][x]);
+						HDEBUG::ConsolePrint(Arr);
+						break;
+					case 2:
+						swprintf_s(Arr, L"(Z %0.3f * b%d%d %0.3f)", _Other.Arr[i], i, x, m_Vec[i][x]);
+						HDEBUG::ConsolePrint(Arr);
+						break;
+					case 3:
+						swprintf_s(Arr, L"(W %0.3f * b%d%d %0.3f)", _Other.Arr[i], i, x, m_Vec[i][x]);
+						HDEBUG::ConsolePrint(Arr);
+						break;
+					default:
+						break;
+					}
+					Sum += _Other.Arr[i] * m_Vec[i][x];
+				}
+
+				NewVec.Arr[x] = Sum;
+				HDEBUG::ConsolePrint(L"\n");
+			}
+		}
+
+		HDEBUG::ConsolePrint(L"벡터 출력");
+		swprintf_s(Arr, L"X : %f, Y : %f, Z : %f, W : %f", NewVec.x, NewVec.y, NewVec.z, NewVec.w);
+		HDEBUG::ConsolePrintLine(Arr);
+
+		return NewVec;
+	}
+
+
+private:
+	void SizeSetting(int _Y, int _X) 
+	{
+		if (0 == _Y)
+		{
+			BOOM;
+		}
+
+		if (0 == _X)
+		{
+			BOOM;
+		}
+
+		m_Vec.resize(_Y);
+		for (size_t y = 0; y < m_Vec.size(); y++)
+		{
+			m_Vec[y].resize(_X);
+		}
+	}
+
+	void IDEN() 
+	{
+		for (size_t y = 0; y < m_Vec.size(); y++)
+		{
+			for (size_t x = 0; x < m_Vec[y].size(); x++)
+			{
+				if (y == x)
+				{
+					m_Vec[y][x] = 1.0f;
+				}
+				else {
+					m_Vec[y][x] = 0.0f;
+				}
+			}
+		}
+	}
+
+public:
+	MATMATH()
+	{
+	}
+
+	MATMATH(int _Y, int _X)
+	{
+		SizeSetting(_Y, _X);
+		IDEN();
+	}
+};

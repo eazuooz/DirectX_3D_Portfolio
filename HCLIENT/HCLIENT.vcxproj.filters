@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MOVESCRIPT.cpp">
+      <Filter>CLIENTCOM</Filter>
+    </ClCompile>
+    <ClCompile Include="InitFunc.cpp" />
+    <ClCompile Include="HROTNO.cpp">
+      <Filter>CLIENTCOM</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectSceneUpdater.cpp">
+      <Filter>Updater\03_Collect</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingSceneUpdater.cpp">
+      <Filter>Updater\06_Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingSceneUpdater.cpp">
+      <Filter>Updater\01_Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaySceneUpdater.cpp">
+      <Filter>Updater\05_Play</Filter>
+    </ClCompile>
+    <ClCompile Include="LobySceneUpdater.cpp">
+      <Filter>Updater\02_Loby</Filter>
+    </ClCompile>
+    <ClCompile Include="StartSceneUpdater.cpp">
+      <Filter>Updater\04_Start</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MOVESCRIPT.h">
+      <Filter>CLIENTCOM</Filter>
+    </ClInclude>
+    <ClInclude Include="InitFunc.h" />
+    <ClInclude Include="HROTNO.h">
+      <Filter>CLIENTCOM</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectSceneUpdater.h">
+      <Filter>Updater\03_Collect</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingSceneUpdater.h">
+      <Filter>Updater\06_Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingSceneUpdater.h">
+      <Filter>Updater\01_Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaySceneUpdater.h">
+      <Filter>Updater\05_Play</Filter>
+    </ClInclude>
+    <ClInclude Include="LobySceneUpdater.h">
+      <Filter>Updater\02_Loby</Filter>
+    </ClInclude>
+    <ClInclude Include="StartSceneUpdater.h">
+      <Filter>Updater\04_Start</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
+    <Text Include="엔진계획.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Updater">
+      <UniqueIdentifier>{ec17e1a6-8c63-4616-9371-cc901f10c745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLIENTCOM">
+      <UniqueIdentifier>{9258e3be-d23d-40f0-930a-09d30b384995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\01_Loading">
+      <UniqueIdentifier>{97018f54-7a47-406f-8152-b4dc63e39c68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\02_Loby">
+      <UniqueIdentifier>{f5cedf81-8952-44a9-80bc-0408723c0855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\03_Collect">
+      <UniqueIdentifier>{6e950439-0a30-4044-9df0-ae740205f4e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\04_Start">
+      <UniqueIdentifier>{159bbb13-f5e1-42b0-ae06-ae3d22b2a638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\05_Play">
+      <UniqueIdentifier>{c1872074-8e5a-4aaa-8264-7cbb2952d32d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Updater\06_Ending">
+      <UniqueIdentifier>{5da5e1e3-0db0-41e0-a379-e485093d6568}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

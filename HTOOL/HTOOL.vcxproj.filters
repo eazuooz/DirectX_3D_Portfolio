@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="STD">
+      <UniqueIdentifier>{75ff77c7-f2c3-4d88-b2d1-08a09b4c435f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VIEW">
+      <UniqueIdentifier>{c516612f-d9de-496c-9140-942e4970b379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RES">
+      <UniqueIdentifier>{9e8cf706-a289-43ad-8c15-cd8ecb25face}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOOLLOGIC">
+      <UniqueIdentifier>{f11d266f-f0ec-43ee-80a3-89d89a7b5688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DLG">
+      <UniqueIdentifier>{50e12f97-1d8b-4709-95bc-a06435cf231c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HTOOL.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>RES</Filter>
+    </ClInclude>
+    <ClInclude Include="HLeftView.h">
+      <Filter>VIEW</Filter>
+    </ClInclude>
+    <ClInclude Include="HRightView.h">
+      <Filter>VIEW</Filter>
+    </ClInclude>
+    <ClInclude Include="HRIGHTMENUDLG.h">
+      <Filter>VIEW</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolHeader.h" />
+    <ClInclude Include="HMAPDLG.h">
+      <Filter>DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="HMONSTERDLG.h">
+      <Filter>DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="HTOOLVALUE.h" />
+    <ClInclude Include="HMapUpdater.h">
+      <Filter>TOOLLOGIC</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HTOOL.cpp">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="HLeftView.cpp">
+      <Filter>VIEW</Filter>
+    </ClCompile>
+    <ClCompile Include="HRightView.cpp">
+      <Filter>VIEW</Filter>
+    </ClCompile>
+    <ClCompile Include="HRIGHTMENUDLG.cpp">
+      <Filter>VIEW</Filter>
+    </ClCompile>
+    <ClCompile Include="HMAPDLG.cpp">
+      <Filter>DLG</Filter>
+    </ClCompile>
+    <ClCompile Include="HMONSTERDLG.cpp">
+      <Filter>DLG</Filter>
+    </ClCompile>
+    <ClCompile Include="HTOOLVALUE.cpp" />
+    <ClCompile Include="HMapUpdater.cpp">
+      <Filter>TOOLLOGIC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HTOOL.rc">
+      <Filter>RES</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\HTOOL.rc2">
+      <Filter>RES</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\HTOOL.ico">
+      <Filter>RES</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

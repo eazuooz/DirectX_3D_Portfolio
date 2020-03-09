@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <FxCompile Include="..\BIN\SHADER\COLORRECT.fx" />
+    <FxCompile Include="..\BIN\SHADER\DEBUGMESH.fx" />
+    <FxCompile Include="..\BIN\SHADER\TEXSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\TEXSHADERINST.fx" />
+    <FxCompile Include="..\BIN\SHADER\BASEMESH.fx" />
+    <FxCompile Include="..\BIN\SHADER\HGRID.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTMESHSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHT.fx" />
+    <FxCompile Include="..\BIN\SHADER\BASECB.fx" />
+    <FxCompile Include="..\BIN\SHADER\CAMSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\DEBUGTEXSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\DEFERREDLIGHTINGMERGE.fx" />
+    <FxCompile Include="..\BIN\SHADER\DEFERREDLIGHTING.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTMESHSHADERFBX.fx" />
+    <FxCompile Include="..\BIN\SHADER\BASEMATH.fx" />
+    <FxCompile Include="..\BIN\SHADER\TERRAIN.fx" />
+    <FxCompile Include="..\BIN\SHADER\UITEXSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\BLOOM.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTMESHSHADERSTATIC.fx" />
+    <FxCompile Include="..\BIN\SHADER\SHADOW.fx" />
+    <FxCompile Include="..\BIN\SHADER\SHADOWANI.fx" />
+    <FxCompile Include="..\BIN\SHADER\WATERMESHSHADER.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTMESHSHADEREFFECT.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTEFFECTMESHSHADERSTATIC.fx" />
+    <FxCompile Include="..\BIN\SHADER\LIGHTMESHSHADERFBXEFFECT.fx" />
+  </ItemGroup>
+</Project>

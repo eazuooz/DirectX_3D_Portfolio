@@ -1,0 +1,6 @@
+#include "stdafx.h"
+#include "HTOOLVALUE.h"
+
+int HTOOLVALUE::MAPFLOOR = 0;
+int HTOOLVALUE::LEFTSPRITEFLOOR = 0;
+int HTOOLVALUE::RIGHTSPRITEFLOOR = 0;
