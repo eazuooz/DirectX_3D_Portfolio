@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="ATEST.h" />
+    <ClInclude Include="LOGICHEADER.h" />
+    <ClInclude Include="JITILEMAP.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPlayer.h" />
+    <ClInclude Include="BoneChaser.h" />
+    <ClInclude Include="ChessBoard.h">
+      <Filter>ChessBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceLogic.h">
+      <Filter>ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="MpMagicion.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterLogic.h">
+      <Filter>ChessPiece\Sub\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusLogic.h">
+      <Filter>ChessPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Mgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SellerLogic.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BladeKnight.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="DemonLarva.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="DoomArbiter.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Egg.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="FireMagician.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="GodofThunder.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="GodofWar.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="LittleDragon.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="PirateCaptain.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowDemon.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiningArcher.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Siren.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordMaster.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="WindRanger.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderSpirit.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="TideHunter.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="ToenailDruid.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="TortolanElder.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Unicorn.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="WalrusChamp.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Warewolf.h">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="UnicornSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectTileLogic.h">
+      <Filter>ProjectTile</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectRotate.h">
+      <Filter>VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="LittleDragonSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEffect.h">
+      <Filter>VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="BladeKnightWeapon.h">
+      <Filter>ProjectTile\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="SerpentWard.h">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="WareWolfEffect.h">
+      <Filter>VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="WarewolfWard.h">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiningArcherSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowDemonSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="FireMagicionSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="DoomArbiterSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="WindRangerSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderSpiritSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulBear.h">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="PirateSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GodofThunderSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="TideHunterSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="WalrusChampSkill.h">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterProjectLogic.h">
+      <Filter>ChessPiece\Sub\Enemy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ATEST.cpp" />
+    <ClCompile Include="LOGICHEADER.cpp" />
+    <ClCompile Include="JITILEMAP.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPlayer.cpp" />
+    <ClCompile Include="BoneChaser.cpp" />
+    <ClCompile Include="ChessBoard.cpp">
+      <Filter>ChessBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceLogic.cpp">
+      <Filter>ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="MpMagicion.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterLogic.cpp">
+      <Filter>ChessPiece\Sub\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusLogic.cpp">
+      <Filter>ChessPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Mgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SellerLogic.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BladeKnight.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="DemonLarva.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="DoomArbiter.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Egg.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="FireMagician.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="GodofThunder.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="GodofWar.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="LittleDragon.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="PirateCaptain.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowDemon.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiningArcher.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Siren.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordMaster.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="ThunderSpirit.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="TideHunter.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="ToenailDruid.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="TortolanElder.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Unicorn.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="WalrusChamp.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Warewolf.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="WindRanger.cpp">
+      <Filter>ChessPiece\Sub\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="UnicornSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectTileLogic.cpp">
+      <Filter>ProjectTile</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectRotate.cpp">
+      <Filter>VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="LittleDragonSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEffect.cpp">
+      <Filter>VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="BladeKnightWeapon.cpp">
+      <Filter>ProjectTile\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="SerpentWard.cpp">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="WareWolfEffect.cpp">
+      <Filter>VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="WarewolfWard.cpp">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiningArcherSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowDemonSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="FireMagicionSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="DoomArbiterSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="WindRangerSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="ThunderSpiritSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulBear.cpp">
+      <Filter>ChessPiece\Sub\Ally\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="PirateSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="GodofThunderSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="TideHunterSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="WalrusChampSkill.cpp">
+      <Filter>ChessPiece\SkillLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterProjectLogic.cpp">
+      <Filter>ChessPiece\Sub\Enemy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="COM">
+      <UniqueIdentifier>{17e7c385-ceda-41cc-812a-42663e6db8fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece">
+      <UniqueIdentifier>{bfad181d-7d01-4630-9d75-809ab6c7b4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessBoard">
+      <UniqueIdentifier>{a7da3fb5-3264-4fa2-befa-16ff2afd6dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece\Sub">
+      <UniqueIdentifier>{69a33fa3-baae-4605-b3a0-c47ecc835835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece\Sub\Enemy">
+      <UniqueIdentifier>{51d0e577-3d3b-4d7e-901c-3faca477f46a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece\Sub\Ally">
+      <UniqueIdentifier>{ec24346e-541f-4565-bf4a-4a8b766a1952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mgr">
+      <UniqueIdentifier>{7fd999f8-ef07-465d-84d3-baa53b0eee6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{badb2aa6-527b-476f-8ebc-8b4642808333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{70e8f703-73ab-4273-b913-e2a513dbf584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece\SkillLogic">
+      <UniqueIdentifier>{ff83c272-2c7c-477b-aac7-ae2ca499b28b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProjectTile">
+      <UniqueIdentifier>{7be3ed34-4fc6-4ff4-ad89-5cba09d59054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFX">
+      <UniqueIdentifier>{3f836076-44ed-4549-9acc-e93b827bdc31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProjectTile\Sub">
+      <UniqueIdentifier>{60e9896d-4a7b-4d2a-9521-1b2e866f7ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChessPiece\Sub\Ally\Sub">
+      <UniqueIdentifier>{414c27a3-53c9-42ff-b6fb-4b9ffa6f864b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

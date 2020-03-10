@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{E75D5D7D-2710-4E4F-B8A6-30A943C7FD08}</ProjectGuid>
+    <RootNamespace>HLOGICLIB</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>LOGICLIB</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\BIN\X32\</OutDir>
+    <TargetName>$(ProjectName)D32</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\BIN\;..\HENGINE\;..\HBASE\;..\TPARTY\HEADER\;</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\BIN\X32\</OutDir>
+    <TargetName>$(ProjectName)R32</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\BIN\;..\HENGINE\;..\HBASE\;..\TPARTY\HEADER\;</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\BIN\X64\</OutDir>
+    <TargetName>$(ProjectName)D64</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\BIN\;..\HENGINE\;..\HBASE\;..\TPARTY\HEADER\;</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\BIN\X64\</OutDir>
+    <TargetName>$(ProjectName)R64</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\BIN\;..\HENGINE\;..\HBASE\;..\TPARTY\HEADER\;</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);X64;;DEBUGMODE</PreprocessorDefinitions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);X32;;DEBUGMODE</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);X32;;RELEASEMODE;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);X64;;RELEASEMODE;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ATEST.h" />
+    <ClInclude Include="BaseEffect.h" />
+    <ClInclude Include="BladeKnight.h" />
+    <ClInclude Include="BladeKnightWeapon.h" />
+    <ClInclude Include="BoneChaser.h" />
+    <ClInclude Include="ChessBoard.h" />
+    <ClInclude Include="DemonLarva.h" />
+    <ClInclude Include="DoomArbiter.h" />
+    <ClInclude Include="DoomArbiterSkill.h" />
+    <ClInclude Include="Egg.h" />
+    <ClInclude Include="FireMagician.h" />
+    <ClInclude Include="FireMagicionSkill.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GodofThunder.h" />
+    <ClInclude Include="GodofThunderSkill.h" />
+    <ClInclude Include="GodofWar.h" />
+    <ClInclude Include="LittleDragon.h" />
+    <ClInclude Include="LittleDragonSkill.h" />
+    <ClInclude Include="MonsterLogic.h" />
+    <ClInclude Include="MonsterProjectLogic.h" />
+    <ClInclude Include="PieceLogic.h" />
+    <ClInclude Include="JITILEMAP.h" />
+    <ClInclude Include="LOGICHEADER.h" />
+    <ClInclude Include="MpMagicion.h" />
+    <ClInclude Include="PirateCaptain.h" />
+    <ClInclude Include="PirateSkill.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="ProjectTileLogic.h" />
+    <ClInclude Include="EffectRotate.h" />
+    <ClInclude Include="SellerLogic.h" />
+    <ClInclude Include="SerpentWard.h" />
+    <ClInclude Include="ShadowDemon.h" />
+    <ClInclude Include="ShadowDemonSkill.h" />
+    <ClInclude Include="ShiningArcher.h" />
+    <ClInclude Include="ShiningArcherSkill.h" />
+    <ClInclude Include="Siren.h" />
+    <ClInclude Include="SoulBear.h" />
+    <ClInclude Include="StatusLogic.h" />
+    <ClInclude Include="SwordMaster.h" />
+    <ClInclude Include="TestPlayer.h" />
+    <ClInclude Include="ThunderSpirit.h" />
+    <ClInclude Include="ThunderSpiritSkill.h" />
+    <ClInclude Include="TideHunter.h" />
+    <ClInclude Include="TideHunterSkill.h" />
+    <ClInclude Include="ToenailDruid.h" />
+    <ClInclude Include="TortolanElder.h" />
+    <ClInclude Include="Unicorn.h" />
+    <ClInclude Include="UnicornSkill.h" />
+    <ClInclude Include="WalrusChamp.h" />
+    <ClInclude Include="WalrusChampSkill.h" />
+    <ClInclude Include="Warewolf.h" />
+    <ClInclude Include="WareWolfEffect.h" />
+    <ClInclude Include="WarewolfWard.h" />
+    <ClInclude Include="WindRanger.h" />
+    <ClInclude Include="WindRangerSkill.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ATEST.cpp" />
+    <ClCompile Include="BaseEffect.cpp" />
+    <ClCompile Include="BladeKnight.cpp" />
+    <ClCompile Include="BladeKnightWeapon.cpp" />
+    <ClCompile Include="BoneChaser.cpp" />
+    <ClCompile Include="ChessBoard.cpp" />
+    <ClCompile Include="DemonLarva.cpp" />
+    <ClCompile Include="DoomArbiter.cpp" />
+    <ClCompile Include="DoomArbiterSkill.cpp" />
+    <ClCompile Include="Egg.cpp" />
+    <ClCompile Include="FireMagician.cpp" />
+    <ClCompile Include="FireMagicionSkill.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GodofThunder.cpp" />
+    <ClCompile Include="GodofThunderSkill.cpp" />
+    <ClCompile Include="GodofWar.cpp" />
+    <ClCompile Include="LittleDragon.cpp" />
+    <ClCompile Include="LittleDragonSkill.cpp" />
+    <ClCompile Include="MonsterLogic.cpp" />
+    <ClCompile Include="MonsterProjectLogic.cpp" />
+    <ClCompile Include="PieceLogic.cpp" />
+    <ClCompile Include="JITILEMAP.cpp" />
+    <ClCompile Include="LOGICHEADER.cpp" />
+    <ClCompile Include="MpMagicion.cpp" />
+    <ClCompile Include="PirateCaptain.cpp" />
+    <ClCompile Include="PirateSkill.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ProjectTileLogic.cpp" />
+    <ClCompile Include="EffectRotate.cpp" />
+    <ClCompile Include="SellerLogic.cpp" />
+    <ClCompile Include="SerpentWard.cpp" />
+    <ClCompile Include="ShadowDemon.cpp" />
+    <ClCompile Include="ShadowDemonSkill.cpp" />
+    <ClCompile Include="ShiningArcher.cpp" />
+    <ClCompile Include="ShiningArcherSkill.cpp" />
+    <ClCompile Include="Siren.cpp" />
+    <ClCompile Include="SoulBear.cpp" />
+    <ClCompile Include="StatusLogic.cpp" />
+    <ClCompile Include="SwordMaster.cpp" />
+    <ClCompile Include="TestPlayer.cpp" />
+    <ClCompile Include="ThunderSpirit.cpp" />
+    <ClCompile Include="ThunderSpiritSkill.cpp" />
+    <ClCompile Include="TideHunter.cpp" />
+    <ClCompile Include="TideHunterSkill.cpp" />
+    <ClCompile Include="ToenailDruid.cpp" />
+    <ClCompile Include="TortolanElder.cpp" />
+    <ClCompile Include="Unicorn.cpp" />
+    <ClCompile Include="UnicornSkill.cpp" />
+    <ClCompile Include="WalrusChamp.cpp" />
+    <ClCompile Include="WalrusChampSkill.cpp" />
+    <ClCompile Include="Warewolf.cpp" />
+    <ClCompile Include="WareWolfEffect.cpp" />
+    <ClCompile Include="WarewolfWard.cpp" />
+    <ClCompile Include="WindRanger.cpp" />
+    <ClCompile Include="WindRangerSkill.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
