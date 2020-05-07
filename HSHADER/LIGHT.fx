@@ -1,23 +1,23 @@
 
 struct LIGHTRESULT
 {
-    // ¿¸øÎΩ√∏«∆Ω¿Ã ¡∏¿Á«—¥Ÿ.
-    float4 vDiff; // »ÆªÍ±§ ≥≠π›ªÁ±§
-    float4 vSpec; // ¡§π›ªÁ±§
-    float4 vAmbi; // ¡÷∫Ø±§ »Ø∞Ê±§
+    // Ï†ÑÏö©ÏãúÎß®Ìã±Ïù¥ Ï°¥Ïû¨ÌïúÎã§.
+    float4 vDiff; // ÌôïÏÇ∞Í¥ë ÎÇúÎ∞òÏÇ¨Í¥ë
+    float4 vSpec; // Ï†ïÎ∞òÏÇ¨Í¥ë
+    float4 vAmbi; // Ï£ºÎ≥ÄÍ¥ë ÌôòÍ≤ΩÍ¥ë
 };
 
 struct LIGHTDATA
 {
-    // ∫˚¿ª ¿¸∫Œ¥Ÿ «•«ˆ«œ∑¡∞Ì ∏∏µÈæ˙¿∏π«∑Œ
-    float4 Color; // ∫˚¿« ªˆ±Ú
-    float4 LightPos; // ∫˚¿« ¿ßƒ° (µ∑∫º« ∂Û¿Ã∆Æ∏È ¿«πÃ∞° æ¯¥Ÿ)
-    float4 LightDir; // ∫˚¿Ã πŸ∂Û∫∏¥¬ πÊ«‚(∆˜¿Œ∆Æ ∂Û¿Ã∆Æ∏È ±◊∂ß±◊∂ß∏∂¥Ÿ ¿Á∞ËªÍ µ∑∫º«¿Ã∏È «◊ªÛ ∂»∞∞¥Ÿ)
-    // L¿« π›¥Î
-    float4 LightDirInv; // -LightDir (∂˜∫£∏£∆Æ ¡∂∏Ì∞¯Ωƒø°º≠ L)
-    float Range; // π¸¿ß
-    float DiffPower; // ∫˚¿« ∞≠µµ // ¿¸π›¿˚¿∏∑Œ π‡æ∆¡ˆ∞Ì
-    float SpecPower; // ∫˚¿« ∞≠µµ // ≥ª∞° πŸ∂Û∫∏¥¬ πÊ«‚∞˙ ∫Ø¿Ã 
+    // ÎπõÏùÑ Ï†ÑÎ∂ÄÎã§ ÌëúÌòÑÌïòÎ†§Í≥† ÎßåÎì§ÏóàÏúºÎØÄÎ°ú
+    float4 Color; // ÎπõÏùò ÏÉâÍπî
+    float4 LightPos; // ÎπõÏùò ÏúÑÏπò (ÎîîÎ†âÏÖò ÎùºÏù¥Ìä∏Î©¥ ÏùòÎØ∏Í∞Ä ÏóÜÎã§)
+    float4 LightDir; // ÎπõÏù¥ Î∞îÎùºÎ≥¥Îäî Î∞©Ìñ•(Ìè¨Ïù∏Ìä∏ ÎùºÏù¥Ìä∏Î©¥ Í∑∏ÎïåÍ∑∏ÎïåÎßàÎã§ Ïû¨Í≥ÑÏÇ∞ ÎîîÎ†âÏÖòÏù¥Î©¥ Ìï≠ÏÉÅ ÎòëÍ∞ôÎã§)
+    // LÏùò Î∞òÎåÄ
+    float4 LightDirInv; // -LightDir (ÎûåÎ≤†Î•¥Ìä∏ Ï°∞Î™ÖÍ≥µÏãùÏóêÏÑú L)
+    float Range; // Î≤îÏúÑ
+    float DiffPower; // ÎπõÏùò Í∞ïÎèÑ // Ï†ÑÎ∞òÏ†ÅÏúºÎ°ú Î∞ùÏïÑÏßÄÍ≥†
+    float SpecPower; // ÎπõÏùò Í∞ïÎèÑ // ÎÇ¥Í∞Ä Î∞îÎùºÎ≥¥Îäî Î∞©Ìñ•Í≥º Î≥ÄÏù¥ 
     
     int Type;
     int SpecPow;
@@ -33,21 +33,21 @@ struct ALLLIGHTDATA
 };
 
 
-// 10π¯ ¿ÃªÛ¿∫ Ω√Ω∫≈€ µ•¿Ã≈Õ
+// 10Î≤à Ïù¥ÏÉÅÏùÄ ÏãúÏä§ÌÖú Îç∞Ïù¥ÌÑ∞
 cbuffer LIGHTSETTING : register(b10)
 {
     ALLLIGHTDATA LightData;
 };
 
-// ªÛºˆπˆ∆€¥¬ ≥™¡ﬂø° ∏∏µÁ¥Ÿ.
+// ÏÉÅÏàòÎ≤ÑÌçºÎäî ÎÇòÏ§ëÏóê ÎßåÎì†Îã§.
 
-// in out¿ª 
-// ∞Ì∑Œ¿« ¥‹¡°¿ª Ω±∞‘ æÀºˆ ¿÷¥Ÿ.
+// in outÏùÑ 
+// Í≥†Î°úÏùò Îã®Ï†êÏùÑ ÏâΩÍ≤å ÏïåÏàò ÏûàÎã§.
 LIGHTRESULT CalLightVTX(
-float4 _vViewPos,  // ≥™¥¬ ∫˚¿ª π›ªÁ«œ¥¬ ∏È¡ﬂ «œ≥™¿Œµ• ≥™¥¬ ø©±‚æﬂ
-float4 _vViewNormal,  // ≥™¥¬ ¿Ã¬ ¿ª πŸ∂Û∫∏∞Ì ¿÷æÓ
-float4 _vCamPos,  // ±◊∞… ø©±‚º≠ ∫∏∞Ì ¿÷æÓ
-LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
+float4 _vViewPos,  // ÎÇòÎäî ÎπõÏùÑ Î∞òÏÇ¨ÌïòÎäî Î©¥Ï§ë ÌïòÎÇòÏù∏Îç∞ ÎÇòÎäî Ïó¨Í∏∞Ïïº
+float4 _vViewNormal,  // ÎÇòÎäî Ïù¥Ï™ΩÏùÑ Î∞îÎùºÎ≥¥Í≥† ÏûàÏñ¥
+float4 _vCamPos,  // Í∑∏Í±∏ Ïó¨Í∏∞ÏÑú Î≥¥Í≥† ÏûàÏñ¥
+LIGHTDATA _Light // Í∑∏Í±∏ Ïù¥ ÎπõÏù¥ ÎπÑÏ∂îÍ≥† ÏûàÏñ¥
 )
 {
     LIGHTRESULT RLR = (LIGHTRESULT) 0.0F;
@@ -66,7 +66,7 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
 
     // 0 DIR
 
-    // πˆ≈ÿΩ∫¿œ∂ß¥¬ 
+    // Î≤ÑÌÖçÏä§ÏùºÎïåÎäî 
     switch (_Light.Type)
     {
     case 1:
@@ -75,12 +75,12 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
        Dis = abs(length(_vViewPos - _Light.LightPos));
        if (Dis >= _Light.Range)
        {
-            // π¸¿ß πŸ±˘¿∏∑Œ ≥™∞¨¥Ÿ.
+            // Î≤îÏúÑ Î∞îÍπ•ÏúºÎ°ú ÎÇòÍ∞îÎã§.
             RangeFactor = 0.0f;
        }
        else
        {
-            // π¸¿ß æ»ø° µÈæÓø‘¥Ÿ.
+            // Î≤îÏúÑ ÏïàÏóê Îì§Ïñ¥ÏôîÎã§.
        RangeFactor = 1.0f - (_Light.Range / Dis);
        }
 
@@ -94,21 +94,21 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
 
     RLR.vDiff = max(0, dot(_vViewNormal.xyz, _Light.LightDirInv.xyz)) * _Light.DiffPower * RangeFactor;
 
-    // ¡§π›ªÁ ±§¿ª ∞ËªÍ«œ∑¡∏È
-    // ¥Áø¨»˜ ≥ª∞° æÓµº≠ ∫∏∞Ì ¿÷¥¬¡ˆ
-    float3 vR; // π›ªÁπÊ«‚
-    float3 vE; // ≥ª ¥´¿« πÊ«‚
+    // Ï†ïÎ∞òÏÇ¨ Í¥ëÏùÑ Í≥ÑÏÇ∞ÌïòÎ†§Î©¥
+    // ÎãπÏó∞Ìûà ÎÇ¥Í∞Ä Ïñ¥ÎîîÏÑú Î≥¥Í≥† ÏûàÎäîÏßÄ
+    float3 vR; // Î∞òÏÇ¨Î∞©Ìñ•
+    float3 vE; // ÎÇ¥ ÎààÏùò Î∞©Ìñ•
 
-    // ø™¿∏∑Œ ≥ª¿˚«—¥Ÿ.
-    // ¿Ã∞Õµµ
+    // Ïó≠ÏúºÎ°ú ÎÇ¥Ï†ÅÌïúÎã§.
+    // Ïù¥Í≤ÉÎèÑ
     vR = normalize(2.0f * dot(_Light.LightDirInv, _vViewNormal) * _vViewNormal - _Light.LightDirInv);
-    // ≥ª∞° πŸ∂Û∫∏¥¬ πÊ«‚
+    // ÎÇ¥Í∞Ä Î∞îÎùºÎ≥¥Îäî Î∞©Ìñ•
     vE = normalize(_vCamPos.xyz - _vViewPos.xyz);
 
-    // ∞™¿ª ¡§π–«œ∞‘ ∏∏µÈ∑¡∞Ì «œ¥¬∞Õ.
-    // ¡§π›ªÁ±§¿« ∞≈ƒß¿ª ¡ª ¿‚¿∏∑¡∞Ì «œ¥¬∞Õ. ¡¶¿œ ∫˚≥™¥¬ ∫Œ∫–¿Ã ∫ŒµÂ∑Øøˆ ¡¯¥Ÿ.
-    // Ω∫∆Â≈ß∑Ø∏¶ ±∏«ﬂ¥Ÿ.
-    // ¡Ô ∞°¿Â ∫˚≥™¥¬ ∫Œ∫–¿Ã ¡ŸæÓµÈ∞‘ µ»¥Ÿ.
+    // Í∞íÏùÑ Ï†ïÎ∞ÄÌïòÍ≤å ÎßåÎì§Î†§Í≥† ÌïòÎäîÍ≤É.
+    // Ï†ïÎ∞òÏÇ¨Í¥ëÏùò Í±∞Ïπ®ÏùÑ Ï¢Ä Ïû°ÏúºÎ†§Í≥† ÌïòÎäîÍ≤É. Ï†úÏùº ÎπõÎÇòÎäî Î∂ÄÎ∂ÑÏù¥ Î∂ÄÎìúÎü¨Ïõå ÏßÑÎã§.
+    // Ïä§ÌéôÌÅòÎü¨Î•º Íµ¨ÌñàÎã§.
+    // Ï¶â Í∞ÄÏû• ÎπõÎÇòÎäî Î∂ÄÎ∂ÑÏù¥ Ï§ÑÏñ¥Îì§Í≤å ÎêúÎã§.
     RLR.vSpec = dot(vE.xyz, vR.xyz) * _Light.SpecPower * RangeFactor;
 
     if (0 >= RLR.vSpec.x)
@@ -131,10 +131,10 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
 }
 
 LIGHTRESULT CalLightPIX(
-float4 _vViewPos, // ≥™¥¬ ∫˚¿ª π›ªÁ«œ¥¬ ∏È¡ﬂ «œ≥™¿Œµ• ≥™¥¬ ø©±‚æﬂ
-float4 _vViewNormal, // ≥™¥¬ ¿Ã¬ ¿ª πŸ∂Û∫∏∞Ì ¿÷æÓ
-float4 _vCamPos, // ±◊∞… ø©±‚º≠ ∫∏∞Ì ¿÷æÓ
-LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
+float4 _vViewPos, // ÎÇòÎäî ÎπõÏùÑ Î∞òÏÇ¨ÌïòÎäî Î©¥Ï§ë ÌïòÎÇòÏù∏Îç∞ ÎÇòÎäî Ïó¨Í∏∞Ïïº
+float4 _vViewNormal, // ÎÇòÎäî Ïù¥Ï™ΩÏùÑ Î∞îÎùºÎ≥¥Í≥† ÏûàÏñ¥
+float4 _vCamPos, // Í∑∏Í±∏ Ïó¨Í∏∞ÏÑú Î≥¥Í≥† ÏûàÏñ¥
+LIGHTDATA _Light // Í∑∏Í±∏ Ïù¥ ÎπõÏù¥ ÎπÑÏ∂îÍ≥† ÏûàÏñ¥
 )
 {
     LIGHTRESULT RLR = (LIGHTRESULT) 0.0F;
@@ -153,7 +153,7 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
 
     // 0 DIR
 
-    // πˆ≈ÿΩ∫¿œ∂ß¥¬ 
+    // Î≤ÑÌÖçÏä§ÏùºÎïåÎäî 
     switch (_Light.Type)
     {
         case 1:
@@ -162,12 +162,12 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
             Dis = abs(length(_vViewPos.xyz - _Light.LightPos.xyz));
             if (Dis >= _Light.Range)
             {
-            // π¸¿ß πŸ±˘¿∏∑Œ ≥™∞¨¥Ÿ.
+            // Î≤îÏúÑ Î∞îÍπ•ÏúºÎ°ú ÎÇòÍ∞îÎã§.
                 RangeFactor = 0.0f;
             }
             else
             {
-            // π¸¿ß æ»ø° µÈæÓø‘¥Ÿ.
+            // Î≤îÏúÑ ÏïàÏóê Îì§Ïñ¥ÏôîÎã§.
                 RangeFactor = 1.0f - (_Light.Range / Dis);
             }
 
@@ -181,21 +181,21 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
 
     RLR.vDiff = max(0, dot(_vViewNormal.xyz, _Light.LightDirInv.xyz)) * _Light.DiffPower * RangeFactor;
 
-    // ¡§π›ªÁ ±§¿ª ∞ËªÍ«œ∑¡∏È
-    // ¥Áø¨»˜ ≥ª∞° æÓµº≠ ∫∏∞Ì ¿÷¥¬ ¡ˆ
-    float3 vR; // π›ªÁπÊ«‚
-    float3 vE; // ≥ª ¥´¿« πÊ«‚
+    // Ï†ïÎ∞òÏÇ¨ Í¥ëÏùÑ Í≥ÑÏÇ∞ÌïòÎ†§Î©¥
+    // ÎãπÏó∞Ìûà ÎÇ¥Í∞Ä Ïñ¥ÎîîÏÑú Î≥¥Í≥† ÏûàÎäî ÏßÄ
+    float3 vR; // Î∞òÏÇ¨Î∞©Ìñ•
+    float3 vE; // ÎÇ¥ ÎààÏùò Î∞©Ìñ•
 
-    // ø™¿∏∑Œ ≥ª¿˚«—¥Ÿ.
-    // ¿Ã∞Õµµ
+    // Ïó≠ÏúºÎ°ú ÎÇ¥Ï†ÅÌïúÎã§.
+    // Ïù¥Í≤ÉÎèÑ
     vR = normalize(2.0f * _vViewNormal.xyz * dot(_Light.LightDirInv.xyz, _vViewNormal.xyz) - _Light.LightDirInv.xyz);
-    // ≥ª∞° πŸ∂Û∫∏¥¬ πÊ«‚
+    // ÎÇ¥Í∞Ä Î∞îÎùºÎ≥¥Îäî Î∞©Ìñ•
     vE = normalize(_vCamPos.xyz - _vViewPos.xyz);
 
-    // ∞™¿ª ¡§π–«œ∞‘ ∏∏µÈ∑¡∞Ì «œ¥¬∞Õ.
-    // ¡§π›ªÁ±§¿« ∞≈ƒß¿ª ¡ª ¿‚¿∏∑¡∞Ì «œ¥¬∞Õ. ¡¶¿œ ∫˚≥™¥¬ ∫Œ∫–¿Ã ∫ŒµÂ∑Øøˆ ¡¯¥Ÿ.
-    // Ω∫∆Â≈ß∑Ø∏¶ ±∏«ﬂ¥Ÿ.
-    // ¡Ô ∞°¿Â ∫˚≥™¥¬ ∫Œ∫–¿Ã ¡ŸæÓµÈ∞‘ µ»¥Ÿ.
+    // Í∞íÏùÑ Ï†ïÎ∞ÄÌïòÍ≤å ÎßåÎì§Î†§Í≥† ÌïòÎäîÍ≤É.
+    // Ï†ïÎ∞òÏÇ¨Í¥ëÏùò Í±∞Ïπ®ÏùÑ Ï¢Ä Ïû°ÏúºÎ†§Í≥† ÌïòÎäîÍ≤É. Ï†úÏùº ÎπõÎÇòÎäî Î∂ÄÎ∂ÑÏù¥ Î∂ÄÎìúÎü¨Ïõå ÏßÑÎã§.
+    // Ïä§ÌéôÌÅòÎü¨Î•º Íµ¨ÌñàÎã§.
+    // Ï¶â Í∞ÄÏû• ÎπõÎÇòÎäî Î∂ÄÎ∂ÑÏù¥ Ï§ÑÏñ¥Îì§Í≤å ÎêúÎã§.
     RLR.vSpec = dot(vE.xyz, vR.xyz) * _Light.SpecPower * RangeFactor;
 
     if (0 >= RLR.vSpec.x)
@@ -213,9 +213,9 @@ LIGHTDATA _Light // ±◊∞… ¿Ã ∫˚¿Ã ∫Ò√ﬂ∞Ì ¿÷æÓ
     RLR.vAmbi = float4(0.25f, 0.25f, 0.25f, 0.0f);
     
     
-    //∏≤∂Û¿Ã∆Æ
+    //Î¶ºÎùºÏù¥Ìä∏
 
-    float checkCos = dot(_vViewNormal.xyz, vE.xyz);
+    float checkCos = dot(_vViewNormal.xyz, -vE.xyz);
     float degree = acos(checkCos) * (180.0f / 3.141592f);
     //if (85.0f < degree && 95.0f > degree)
     //{
