@@ -49,6 +49,7 @@ Texture2D NormalTex : register(t1);
 Texture2D DepthTex : register(t2);
 Texture2D ShadowTex : register(t3);
 Texture2D TestTex : register(t4);
+Texture2D Test2Tex : register(t5);
 
 SamplerState Smp : register(s0);
 
@@ -66,18 +67,31 @@ PIX_LIGHTOUT PS_DLIGHTING(VTX_OUT _in)
     float4 Pos = PosTex.Sample(Smp, _in.vUv); // 이부분
     float4 Normal = NormalTex.Sample(Smp, _in.vUv); // 이부분
     float4 TestColor = TestTex.Sample(Smp, _in.vUv);
-    // Normal.w = 0.0f; // 이걸 안해주면 w에 1이 들어가서 영향을 줄수 있다.
-
-    //for (int i = 0; i < LightData.LightSettingData.x; ++i)
-    //{
-    //    LIGHTRESULT LR = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[i]);
-    //    m_Out.Diff += LR.vDiff + LR.vAmbi;
-    //    // m_Out.Diff += LR.vAmbi;
-    //    // m_Out.Diff = float4(0.0f, 0.0f, 0.0f, 1.0f);
-    //    m_Out.Spec += LR.vSpec;
-    //}
     
-    LIGHTRESULT LR = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[0]);
+    // Normal.w = 0.0f; // 이걸 안해주면 w에 1이 들어가서 영향을 줄수 있다.
+    LIGHTRESULT LR = INITFLOAT4X3;
+    for (int i = 0; i < LightData.LightSettingData.x; ++i)
+    {
+        LIGHTRESULT Temp = INITFLOAT4X3;
+    
+        Temp = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[i]);
+        
+        LR.vDiff += Temp.vDiff + Temp.vAmbi;
+        LR.vSpec += Temp.vSpec;
+        
+        //m_Out.Diff += LR.vDiff + LR.vAmbi;
+        //// m_Out.Diff += LR.vAmbi;
+        //// m_Out.Diff = float4(0.0f, 0.0f, 0.0f, 1.0f);
+        //m_Out.Spec += LR.vSpec;
+    }
+    
+    //LIGHTRESULT LR;
+    //for (int4 i = 0; i < LightData.LightSettingData.x; i++)
+    //{
+    //    LR += CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[0]);
+    //}
+        
+    //LIGHTRESULT LR = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[0]);
     
     //여기서 카툰렌더링 넣어주면된다. 
     
@@ -88,7 +102,9 @@ PIX_LIGHTOUT PS_DLIGHTING(VTX_OUT _in)
         // 그림자 판정하기
         float4 vWorldPos = mul(float4(Pos.xyz, 1.f), CamInvView);
         float4 vShadowProj = mul(vWorldPos, LightVP);
+        
         float fDepth = vShadowProj.z / vShadowProj.w;
+        
         float2 vShadowUV = float2((vShadowProj.x / vShadowProj.w) * 0.5f + 0.5f
                            , (vShadowProj.y / vShadowProj.w) * -0.5f + 0.5f);
         
@@ -147,7 +163,16 @@ PIX_LIGHTOUT PS_FBXDLIGHTING(VTX_OUT _in)
     TestTex.Sample(Smp, _in.vUv);
 
     
-    LIGHTRESULT LR = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[0]);
+    LIGHTRESULT LR = INITFLOAT4X3;
+    for (int i = 0; i < LightData.LightSettingData.x; ++i)
+    {
+        LIGHTRESULT Temp = INITFLOAT4X3;
+    
+        Temp = CalLightPIX(Pos, Normal, DEFERREDCAMPOS, LightData.ArrLight[i]);
+        
+        LR.vDiff += Temp.vDiff + Temp.vAmbi;
+        LR.vSpec += Temp.vSpec;
+    }
 
     
     if (LR.vDiff.x != 0.0f && ShadowData.x != 0.0f)
@@ -180,21 +205,13 @@ PIX_LIGHTOUT PS_FBXDLIGHTING(VTX_OUT _in)
         }
     }
     
-    //m_Out.Diff = ceil(m_Out.Diff * 0.5f) / 0.5f;
-    //m_Out.Diff = ceil(m_Out.Diff * 0.5f) / 0.5f;
-    
     m_Out.Diff += LR.vDiff + LR.vAmbi;
     m_Out.Spec += LR.vSpec;
     
     m_Out.Diff.w = m_Out.Diff.x;
     m_Out.Spec.w = m_Out.Spec.x;
     
-    //m_Out.Diff.w = 0.5f;
-    //m_Out.Diff *= 0.5f;
-    //m_Out.Diff = float4(1.0f, 0.0f, 0.0f, 1.0f);
-    //m_Out.Spec = float4(1.0f, 1.0f, 1.0f, 1.0f);
 
-    //m_Out.Diff = ceil(m_Out.Diff * 0.5f) / 0.5f;
     
     return m_Out;
 
