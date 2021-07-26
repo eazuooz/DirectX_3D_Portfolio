@@ -10,3 +10,9 @@
     - DirectXTex : 이미지 처리
     - FMOD : 소리 처리
     - FW1FontWrapper : 폰트 출력
+
+![img](https://github.com/MYOMYO3/Images/blob/f5f3575c3afe137b72f7a4b320b0365563ea69b1/1.PNG?raw=true)
+![img](https://github.com/MYOMYO3/Images/blob/f5f3575c3afe137b72f7a4b320b0365563ea69b1/2.PNG?raw=true)
+
+
+
